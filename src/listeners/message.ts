@@ -21,8 +21,13 @@ const messageListener = async (message: Message) => {
   const options = command.slice(1).join(' ').split('" ');
   const { stickerName, stickerAuthor } = parseOptions(options);
 
+  // handle help
+  if (command[0].toLowerCase().startsWith('!help')) {
+    helpHandler(message.from);
+  }
+
   // handle sticker
-  if (command[0] === '!sticker' && message.type === 'image') {
+  if (command[0].toLowerCase() === '!sticker' && message.type === 'image') {
     await stickerHandler({
       message,
       phoneNumber: contact.id.user,
@@ -35,17 +40,10 @@ const messageListener = async (message: Message) => {
         message.from,
         'Merasa terbantu oleh bot ini? Anda bisa bantu saya dengan donasi melalui link berikut ini\n\nhttps://saweria.co/tfkhdyt\n\nSetelah Anda melakukan donasi, pesan ini akan hilang di request selanjutnya.'
       );
-
-    return;
   }
 
   if (command[0].toLowerCase() === '!sticker') {
-    return message.reply('Gambarnya mana?');
-  }
-
-  // handle help
-  if (command[0].toLowerCase().startsWith('!help')) {
-    helpHandler(message.from);
+    message.reply('Gambarnya mana?');
   }
 };
 
