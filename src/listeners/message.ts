@@ -7,15 +7,15 @@ import parseOptions from '../utils/parseOptions';
 import { client } from './../index';
 
 const messageListener = async (message: Message) => {
-  // stop the listener if message is from a status or from a group
-  if (message.isStatus || message.author) return;
-
   // get contact info
   const [contact, err] = await goErrorHandler(() => message.getContact());
   if (err instanceof Error || !contact) {
     message.reply('Terjadi kesalahan pada saat mendapatkan info kontak');
     return console.error('Error when getting contact |', err);
   }
+
+  // stop the listener if message is from a status or from a group
+  if (message.isStatus || contact.isGroup) return;
 
   const command = message.body.split('--').map((cmd) => cmd.trim());
   const options = command.slice(1).join(' ').split('" ');
@@ -39,12 +39,12 @@ const messageListener = async (message: Message) => {
     return;
   }
 
-  if (command[0] === '!sticker') {
+  if (command[0].toLowerCase() === '!sticker') {
     return message.reply('Gambarnya mana?');
   }
 
   // handle help
-  if (command[0].toLowerCase() === '!help') {
+  if (command[0].toLowerCase().startsWith('!help')) {
     helpHandler(message.from);
   }
 };
