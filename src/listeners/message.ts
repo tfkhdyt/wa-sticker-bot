@@ -33,7 +33,7 @@ const messageListener = async (message: Message) => {
     if (!contact.name || !contact.name.endsWith('(DONATUR)'))
       client.sendMessage(
         message.from,
-        'Merasa terbantu oleh bot ini? Ingin mendukung saya di project selanjutnya? Anda bisa bantu saya dengan donasi melalui link berikut ini\n\nhttps://saweria.co/tfkhdyt\n\nSetelah Anda melakukan donasi, pesan ini akan hilang di-request selanjutnya.'
+        'Merasa terbantu oleh bot ini? Anda bisa bantu saya dengan donasi melalui link berikut ini\n\nhttps://saweria.co/tfkhdyt\n\nSetelah Anda melakukan donasi, pesan ini akan hilang di request selanjutnya.'
       );
 
     return;
