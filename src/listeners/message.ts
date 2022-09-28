@@ -16,6 +16,10 @@ const messageListener = async (message: Message) => {
   // stop the listener if message is from a status or from a group
   if (message.isStatus || contact.isGroup) return;
 
+  if (message.body === '' && message.type.toLowerCase() === 'ciphertext') {
+    return helpHandler(message);
+  }
+
   const command = message.body.split('--').map((cmd) => cmd.trim());
   const options = command.slice(1).join(' ').split('" ');
   const { stickerName, stickerAuthor } = parseOptions(options);
