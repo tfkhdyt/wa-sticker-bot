@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm run build",
     "start": "NODE_ENV=production node ./dist/index.js",
     "dev": "nodemon src/index.ts",
     "prebuild": "rm -rf ./dist/*",
