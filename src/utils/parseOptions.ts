@@ -3,9 +3,9 @@ const parseOptions = (options: string[]) => {
   let stickerAuthor = null;
 
   options.forEach((option) => {
-    if (option.startsWith('name="')) {
+    if (option.startsWith('name=')) {
       stickerName = option.split('=')[1].replaceAll('"', '');
-    } else if (option.startsWith('author="')) {
+    } else if (option.startsWith('author=')) {
       stickerAuthor = option.split('=')[1].replaceAll('"', '');
     }
   });
