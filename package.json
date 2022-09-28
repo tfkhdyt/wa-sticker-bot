@@ -11,7 +11,7 @@
     "postbuild": "npm run lint",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "lint": "eslint --fix {src/**/*.ts}"
+    "lint": "eslint --fix ./src"
   },
   "keywords": [],
   "author": "",
@@ -33,11 +33,5 @@
     "module-alias": "^2.2.2",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.17.1"
-  },
-  "_moduleAliases": {
-    "@/configs": "dist/configs",
-    "@/handlers": "dist/handlers",
-    "@/listeners": "dist/listeners",
-    "@/utils": "dist/utils"
   }
 }
