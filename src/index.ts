@@ -16,8 +16,5 @@ export const client = new Client({
 client.on('qr', qrListener);
 client.on('ready', readyListener);
 client.on('message', messageListener);
-client.on('message_create', (message) => {
-  if (message.type.toLowerCase() === 'ciphertext') return null;
-});
 
 client.initialize();
