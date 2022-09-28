@@ -4,7 +4,6 @@ import helpHandler from '../handlers/help';
 import stickerHandler from '../handlers/sticker';
 import goErrorHandler from '../utils/goErrHandler';
 import parseOptions from '../utils/parseOptions';
-import { client } from './../index';
 
 const messageListener = async (message: Message) => {
   // get contact info
@@ -23,7 +22,7 @@ const messageListener = async (message: Message) => {
 
   // handle help
   if (command[0].toLowerCase().startsWith('!help')) {
-    helpHandler(message.from);
+    helpHandler(message);
   }
 
   // handle sticker
@@ -36,10 +35,11 @@ const messageListener = async (message: Message) => {
     });
 
     if (!contact.name || !contact.name.endsWith('(DONATUR)'))
-      client.sendMessage(
-        message.from,
+      message.reply(
         'Merasa terbantu oleh bot ini? Anda bisa bantu saya dengan donasi melalui link berikut ini\n\nhttps://saweria.co/tfkhdyt\n\nSetelah Anda melakukan donasi, pesan ini akan hilang di request selanjutnya.'
       );
+
+    return;
   }
 
   if (command[0].toLowerCase() === '!sticker') {

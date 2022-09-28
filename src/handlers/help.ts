@@ -1,8 +1,7 @@
-import { client } from '../index';
+import { Message } from 'whatsapp-web.js';
 
-const helpHandler = (chatId: string) => {
-  client.sendMessage(
-    chatId,
+const helpHandler = (message: Message) => {
+  message.reply(
     `*User guide*
 Kirim gambar dengan deskripsi sebagai berikut:
 

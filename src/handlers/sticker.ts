@@ -2,7 +2,6 @@ import { Message } from 'whatsapp-web.js';
 
 import goErrorHandler from '../utils/goErrHandler';
 import printLog from '../utils/logger';
-import { client } from './../index';
 
 type StickerHandlerParams = {
   message: Message;
@@ -23,7 +22,7 @@ const stickerHandler = async ({
     return console.error('Error when downloading media |', err);
   }
 
-  await client.sendMessage(message.from, media, {
+  await message.reply(media, message.from, {
     sendMediaAsSticker: true,
     stickerName: stickerName ?? 'tfkhdyt sticker',
     stickerAuthor: stickerAuthor ?? 'tfkhdyt',
