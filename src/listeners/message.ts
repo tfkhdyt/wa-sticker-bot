@@ -1,5 +1,6 @@
 import { Message } from 'whatsapp-web.js';
 
+import helpHandler from '../handlers/help';
 import stickerHandler from '../handlers/sticker';
 import goErrorHandler from '../utils/goErrHandler';
 import parseOptions from '../utils/parseOptions';
@@ -34,6 +35,17 @@ const messageListener = async (message: Message) => {
         message.from,
         'Merasa terbantu oleh bot ini? Ingin mendukung saya di project selanjutnya? Anda bisa bantu saya dengan donasi melalui link berikut ini\n\nhttps://saweria.co/tfkhdyt\n\nSetelah Anda melakukan donasi, pesan ini akan hilang di-request selanjutnya.'
       );
+
+    return;
+  }
+
+  if (command[0] === '!sticker') {
+    return message.reply('Gambarnya mana?');
+  }
+
+  // handle help
+  if (command[0].toLowerCase() === '!help') {
+    helpHandler(message.from);
   }
 };
 
