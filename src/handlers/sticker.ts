@@ -17,10 +17,10 @@ const stickerHandler = async ({
   stickerAuthor,
 }: StickerHandlerParams) => {
   // prevent empty value
-  if (stickerName)
-    stickerName = stickerName.length > 0 ? stickerName : 'tfkhdyt sticker';
+  if (stickerName) stickerName = stickerName === '' ? stickerName : './tfkhdyt';
   if (stickerAuthor)
-    stickerAuthor = stickerAuthor.length > 0 ? stickerAuthor : 'tfkhdyt';
+    stickerAuthor =
+      stickerAuthor === '' ? stickerAuthor : './tfkhdyt sticker bot';
 
   // download media
   const { data: media, error: downloadError } = await goErrorHandler(() =>
@@ -35,8 +35,8 @@ const stickerHandler = async ({
   const { error: replyError } = await goErrorHandler(() =>
     message.reply(media, message.from, {
       sendMediaAsSticker: true,
-      stickerName: stickerName ?? 'tfkhdyt sticker',
-      stickerAuthor: stickerAuthor ?? 'tfkhdyt',
+      stickerName: stickerName ?? './tfkhdyt',
+      stickerAuthor: stickerAuthor ?? './tfkhdyt sticker bot',
     })
   );
   if (replyError instanceof Error) {
