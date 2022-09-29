@@ -16,18 +16,35 @@ const stickerHandler = async ({
   stickerName,
   stickerAuthor,
 }: StickerHandlerParams) => {
-  const [media, err] = await goErrorHandler(() => message.downloadMedia());
-  if (err instanceof Error || !media) {
+  // prevent empty value
+  if (stickerName)
+    stickerName = stickerName.length > 0 ? stickerName : 'tfkhdyt sticker';
+  if (stickerAuthor)
+    stickerAuthor = stickerAuthor.length > 0 ? stickerAuthor : 'tfkhdyt';
+
+  // download media
+  const { data: media, error: downloadError } = await goErrorHandler(() =>
+    message.downloadMedia()
+  );
+  if (!media) {
     message.reply('Terjadi kesalahan pada saat mendownload gambar');
-    return console.error('Error when downloading media |', err);
+    return console.error('Error when downloading media.', downloadError);
   }
 
-  await message.reply(media, message.from, {
-    sendMediaAsSticker: true,
-    stickerName: stickerName ?? 'tfkhdyt sticker',
-    stickerAuthor: stickerAuthor ?? 'tfkhdyt',
-  });
+  // send sticker
+  const { error: replyError } = await goErrorHandler(() =>
+    message.reply(media, message.from, {
+      sendMediaAsSticker: true,
+      stickerName: stickerName ?? 'tfkhdyt sticker',
+      stickerAuthor: stickerAuthor ?? 'tfkhdyt',
+    })
+  );
+  if (replyError instanceof Error) {
+    message.reply('Terjadi kesalahan pada saat mengirim stiker');
+    return console.error('Error when sending sticker.', replyError);
+  }
 
+  // print log
   printLog(phoneNumber, stickerName, stickerAuthor);
 };
 

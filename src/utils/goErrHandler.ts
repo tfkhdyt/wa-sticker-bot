@@ -1,11 +1,16 @@
+type Result<T> = {
+  data?: T | null;
+  error: unknown;
+};
+
 const goErrorHandler = async <T>(
   callback: () => Promise<T>
-): Promise<[T | null, unknown]> => {
+): Promise<Result<T>> => {
   try {
     const data = await callback();
-    return [data, null];
+    return { data, error: null };
   } catch (error) {
-    return [null, error];
+    return { data: null, error };
   }
 };
 
