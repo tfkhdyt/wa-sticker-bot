@@ -8,7 +8,6 @@ specifiers:
   '@vitest/coverage-c8': ^0.23.4
   eslint: ^8.23.1
   eslint-plugin-simple-import-sort: ^8.0.0
-  module-alias: ^2.2.2
   nodemon: ^2.0.20
   qrcode-terminal: ^0.12.0
   ts-node: ^10.9.1
@@ -17,7 +16,6 @@ specifiers:
   whatsapp-web.js: ^1.17.1
 
 dependencies:
-  module-alias: 2.2.2
   qrcode-terminal: 0.12.0
   whatsapp-web.js: 1.17.1
 
@@ -1448,10 +1446,6 @@ packages:
 
   /mkdirp-classic/0.5.3:
     resolution: {integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==}
-    dev: false
-
-  /module-alias/2.2.2:
-    resolution: {integrity: sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==}
     dev: false
 
   /ms/2.1.2:

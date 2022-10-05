@@ -1,8 +1,8 @@
 {
   "name": "wa-sticker-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Free and Open Source WhatsApp Sticker Generator Bot",
+  "main": "src/index.ts",
   "scripts": {
     "prestart": "npm run build",
     "start": "NODE_ENV=production node ./dist/index.js",
@@ -15,8 +15,8 @@
     "lint": "eslint --fix ./src"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "tfkhdyt",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@types/node": "^18.7.18",
     "@types/qrcode-terminal": "^0.12.0",
@@ -31,7 +31,6 @@
     "vitest": "^0.23.4"
   },
   "dependencies": {
-    "module-alias": "^2.2.2",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.17.1"
   }
