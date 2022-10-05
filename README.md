@@ -6,16 +6,16 @@
 
 ## Tech Stack
 
-- TypeScript
-- whatsapp-web.js
-- Vitest
+- [TypeScript](https://www.typescriptlang.org)
+- [whatsapp-web.js](https://wwebjs.dev)
+- [Vitest](https://vitest.dev)
 
 ## Getting Started
 
 ### Pre-requisites
 
-- Node.js
-- Any Node.js package manager (npm, yarn, _pnpm_)
+- [Node.js](https://nodejs.org)
+- Any Node.js package manager (npm, yarn, **pnpm**)
 
 ### Installation
 
