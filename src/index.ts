@@ -1,5 +1,3 @@
-import 'module-alias/register';
-
 import { Client, LocalAuth } from 'whatsapp-web.js';
 
 import puppeteerOptions from './configs/puppeteer';
