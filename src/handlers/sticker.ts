@@ -43,7 +43,8 @@ const stickerHandler = async ({
   }
 
   // print log
-  printLog(phoneNumber, stickerName, stickerAuthor);
+  if (process.env.NODE_ENV !== 'production')
+    printLog(phoneNumber, stickerName, stickerAuthor);
 };
 
 export default stickerHandler;
