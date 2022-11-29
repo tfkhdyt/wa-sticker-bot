@@ -4,7 +4,6 @@
   "description": "Free and Open Source WhatsApp Sticker Generator Bot",
   "main": "src/index.ts",
   "scripts": {
-    "prestart": "npm run build",
     "start": "NODE_ENV=production node ./dist/index.js",
     "dev": "nodemon src/index.ts",
     "prebuild": "rm -rf ./dist/*",
